@@ -3,6 +3,7 @@ package com.UV_Shield.Factura_nativas.controller
 
 
 
+import com.UV_Shield.Factura_nativas.dto.ClientDto
 import com.UV_Shield.Factura_nativas.model.Client
 import com.UV_Shield.Factura_nativas.service.ClientService
 import org.slf4j.Logger
@@ -72,4 +73,9 @@ class ClientController {
         return ResponseEntity(response, HttpStatus.OK)
     }
     */
+
+    @GetMapping("/high-invoices")
+    fun getClientsWithHighInvoices(): ResponseEntity<List<ClientDto>> {
+        return ResponseEntity(clientService.findClientsWithHighInvoices(), HttpStatus.OK)
+    }
 }
